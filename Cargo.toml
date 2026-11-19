@@ -1,0 +1,23 @@
+[package]
+name = "target"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "TARGET: a local, sandboxed LLM file-analysis agent harness."
+license = "MIT"
+readme = "README.md"
+keywords = ["llm", "agent", "openai", "cli", "sandbox"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+walkdir = "2"
+
+[profile.release]
+lto = "thin"
+strip = true

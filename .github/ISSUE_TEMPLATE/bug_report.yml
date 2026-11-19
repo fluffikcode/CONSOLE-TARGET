@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a reproducible problem with TARGET
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please do not include API keys, tokens, or private
+        file contents. For security issues, use the repository's private
+        advisory flow instead of this form.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and its impact.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `target ...`
+        2. Ask: ...
+        3. Observe: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: TARGET version
+      description: Output of `target --version` or the commit hash.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: rust
+    attributes:
+      label: Rust version
+      description: Output of `rustc --version`.
+
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint and model
+      description: Provider or local runtime, and the model name. Do not include keys.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Scrub paths and secrets before pasting.
+      render: shell

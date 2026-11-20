@@ -1,4 +1,4 @@
-//! The system prompt that defines the agent's contract with the model.
+//!  The system prompt that defines the agent's contract with the model.
 
 /// Behavioural rules sent at the start of every conversation.
 pub const SYSTEM_PROMPT: &str = r#"
